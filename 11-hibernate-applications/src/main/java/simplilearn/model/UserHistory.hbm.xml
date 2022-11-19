@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- THIS IS THE MAPPING FILE FOR HIBERNATE -->
+<hibernate-mapping>
+	<class name = "simplilearn.model.UserHistory" table="USER_HISTORY">	<!-- mapping the table with the class -->
+		<id name="id">		<!-- id tag is for specify the primary key of the table -->
+			<column name="ID"/>
+			<generator class="increment"/> <!-- specifying the algorithm used to generate the id value -->
+		</id>
+		
+		<many-to-one name="user" class="simpilearn.model.User" not-null = "true">
+			<column name = "USER_ID"/>
+		</many-to-one>
+		
+		<property name="entryTime">
+			<column name = "ENTRYTIME"/>
+		</property>
+		
+		<property name="entry">
+			<column name = "ENTRY"/>
+		</property>
+	</class>
+
+
+</hibernate-mapping>

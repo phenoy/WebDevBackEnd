@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SimpliLearn</title>
+</head>
+<body>
+
+	<h1>SimpliLearn Login Page!!!</h1>
+	<hr color="blue" size="5"/>
+	
+	<form method="post" action="/login">		
+	<!-- Paragraph Tag will be <p>, whereas once backend has to be connected form tag should be used -->
+		<table>		<!-- to display content in tabular structure -->
+			<tr>		<!-- table row -->
+				<td>User Name: </td>		<!-- table data tag -->
+				<td> <input type = "text" name = "USER_NAME" /> </td>
+					<!-- mentioning the input element with default type as text
+					and name is identified as USER_NAME 
+					USER_NAME & PASSWORD are the placeholders to contain the data we enter -->
+				
+			</tr>
+			<tr>		<!-- table row -->
+				<td>Password: </td>
+				<td> <input type = "password" name = "PASSWORD" /> </td>
+			</tr>
+			
+			<tr>		<!-- table row -->
+				<td> &nbsp; </td>
+				<td> <input type = "submit" value = "Login" /> </td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
+
+<!-- Inspect, After entering username password, and clicking Login button
+Navigate to Payload -> view source, information present there is called the query string.
+"?USER_NAME=ds&Password=gfdgf#" becomes part of the URL because the <form method="get"...> 
+Whereas if form method is changed to post, the query string won't be part of the URL anymore
+SHA256 algorithm can be used to mask the password, even when we INSPECT the code of the page -->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- THIS IS THE MAPPING FILE FOR HIBERNATE -->
+<hibernate-mapping>
+	<class name = "simplilearn.model.User" table="USERS">	<!-- mapping the table with the class -->
+		<id name="id">		<!-- id tag is for specify the primary key of the table -->
+			<column name="ID"/>
+			<generator class="identity"/>	<!-- specifying that hibernate should generate the best value for this column -->
+		</id>
+		
+		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
+		<!-- <inverse> attribute is used to specify the bidirectional relationship between User & UserHistory -->
+		<!-- <cascade> attribute specifies any changes in user history corresponding to a user should get saved -->
+			<key column="USER_ID"/>
+			<list-index column="POSITION"/>
+			<one-to-many class="simplilearn.model.UserHistory"/>
+		</list>
+		
+		<property name="name">
+			<column name = "NAME"/>
+		</property>
+		
+		<component name="proteinData">
+			<property name = "total">
+				<column name = "TOTAL"/>
+			</property>
+			
+			<property name = "goal">
+				<column name = "GOAL"/>
+			</property>
+		</component>
+	</class>
+
+
+</hibernate-mapping>
